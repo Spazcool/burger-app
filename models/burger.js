@@ -1,5 +1,9 @@
-// Inside burger.js, import orm.js into burger.js
+import ORM from '../config/orm.js';
+const query = new ORM();
 
-// Also inside burger.js, create the code that will call the ORM functions using burger specific input for the ORM.
+let ID = 2;
+query.selectAll();
+query.insertOne('NAME_OF_BURGER');
+query.updateOne(ID)
 
-// Export at the end of the burger.js file.
+module.exports = burger;
