@@ -1,6 +1,6 @@
-INSERT INTO users (username, password) 
+INSERT INTO burgers (burger_name, devoured) 
 VALUES 
-    ("KyleW", "Test123"),
-    ("MisterNixon", "hithere34"),
-    ("LexieTuTu", "nixdes"),
-    ("Papa", "lovesfam");
+    ("Le Big Mac avec Fromage", false),
+    ("Le Whopper", false),
+    ("Hamburger doubleMD de Dave", true),
+    ("TACO CROUSTILLANT", true);
