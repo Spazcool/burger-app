@@ -1,9 +1,21 @@
-// Import (require) connection.js into orm.js
+import connection from 'conneciton.js';
 
-// In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
+class ORM {
+    constructor(){
+        this.connection = connection;
+    }
+    
+    selectAll(){
+        return this.connection.query('SELECT * FROM burgers;');
+    }
 
-// selectAll()
-// insertOne()
-// updateOne()
+    insertOne(value){
+        return this.connection.query('INSERT INTO burgers burger_name VALUES (?);', [value]);
+    }
 
-// Export the ORM object in module.exports.
+    updateOne(id){
+        return this.connection.query('UPDATE burgers SET devoured = true WHERE id = ?;', [id]);
+    }
+}
+
+module.exports = ORM;
