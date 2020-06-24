@@ -8,7 +8,7 @@ const router = require('express').Router();
 const apiRoutes = require('./burgers_controller.js')
 router.use('/api', apiRoutes)
 
-const htmlRoutes = require('./htmlRoutes')
-router.use('/',htmlRoutes)
+// const htmlRoutes = require('./htmlRoutes')
+// router.use('/',htmlRoutes)
 
 module.exports = router;

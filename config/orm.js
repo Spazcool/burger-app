@@ -1,4 +1,5 @@
-import connection from 'conneciton.js';
+// import connection from 'connection.js';
+const connection = require('./connection.js');
 
 class ORM {
     constructor(){

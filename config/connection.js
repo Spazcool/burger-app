@@ -1,5 +1,7 @@
-import mysql from 'mysql';
-import util from 'util';
+// import mysql from 'mysql';
+// import util from 'util';
+const mysql = require('mysql');
+const util = require('util');
 require('dotenv').config();
 
 const connection = mysql.createConnection({

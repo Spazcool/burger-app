@@ -1,6 +1,10 @@
-import express from 'express';
-import burger from '../models/burger.js';
+// import express from 'express';
+// import burger from '../models/burger.js';
+
+const express = require('express');
+const Burger = require('../models/burger.js');
 const router = express.Router();
+const burger = new Burger();
 
 router.get("/burgers", (req, res) => {
   burger.selectAll().then((data) => {

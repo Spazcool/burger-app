@@ -1,17 +1,23 @@
-import ORM from '../config/orm.js';
+// import ORM from '../config/orm.js';
+const ORM = require('../config/orm.js');
 const query = new ORM();
 
-function selectAll(){
-    return query.selectAll();
+// todo might should inherit from orm
+class Burger {
+    constructor(){
+    }
+    selectAll(){
+        return query.selectAll();
+    }
+
+    insertOne(name){
+        // todo check for dupes
+        return query.insertOne(name);
+    }
+
+    updateOne(ID){
+        return query.updateOne(ID);
+    }
 }
 
-function insertOne(name){
-    // todo check for dupes
-    return query.insertOne(name);
-}
-
-function updateOne(ID){
-    return query.updateOne(ID);
-}
-
-module.exports = burger;
+module.exports = Burger;
