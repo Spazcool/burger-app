@@ -1,6 +1,27 @@
-// Inside the burgers_controller.js file, import the following:
+import express from 'express';
+import burger from '../models/burger.js';
+const router = express.Router();
 
-// Express
-// burger.js
+router.get("/burgers", (req, res) => {
+  burger.selectAll().then((data) => {
+    console.log('get: ', data);
+    res.json(data);
+  });
+});
 
-// Create the router for the app, and export the router at the end of your file.
+router.post("/burgers/create", (req, res) => {
+  burger.insertOne(name).then((data) => {
+    console.log('insert: ', data);
+    res.json(data);
+  });
+});
+
+router.post("/burgers/devour", (req, res) => {
+  let id = req.params.body.id;
+  burger.updateOne(id).then((data) => {
+    console.log('insert: ', data);
+    res.json(data);
+  });
+});
+
+module.exports = router;

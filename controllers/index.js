@@ -4,8 +4,8 @@
 // express router behaves similarly to an express app that you would create in the server file, however it is generic and can be modularized/exported
 const router = require('express').Router();
 
-// 
-const apiRoutes = require('./apiRoutes')
+
+const apiRoutes = require('./burgers_controller.js')
 router.use('/api', apiRoutes)
 
 const htmlRoutes = require('./htmlRoutes')
