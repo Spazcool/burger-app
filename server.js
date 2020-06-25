@@ -1,18 +1,18 @@
-const express = require('express')
+import express, { urlencoded, json, static } from 'express';
 const app = express();
-const exphbs = require("express-handlebars");
-const path = require("path");
+import exphbs from "express-handlebars";
+import { join } from "path";
 require('dotenv').config();
 
 const PORT = process.env.PORT || 8080;
-const routes = require('./controllers/index.js');
+import routes from './controllers/index.js';
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
 // app.use(express.static("public"));
-router.use(express.static(path.join(__dirname, "public")));
+router.use(static(join(__dirname, "public")));
 
 app.use('/', routes);
 
