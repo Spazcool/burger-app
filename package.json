@@ -1,14 +1,15 @@
 {
   "name": "burger-app",
   "version": "1.0.0",
-  "description": "### Overview",
+  "description": "Simple demo of a fullstack application. Demoing a Node backend, hosted on Heroku, using a RESTful API routed with Express that makes requests to a MySQL database & ultimately serves the user a view using Handlebars.",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Douglas Wright",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
