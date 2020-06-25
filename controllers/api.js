@@ -14,29 +14,40 @@ router.get("/burgers", (req, res) => {
 });
 
 router.post("/burgers/create", (req, res) => {
-  burger.insertOne(name).then((data) => {
-    console.log('insert: ', data);
-    res.json(data);
-  });
+  let { burger_name } = req.body;
+  burger.insertOne(burger_name)
+  .then((data) => {
+    status = data.changedRows == 1 ? 200 : 500;
+    //  todo how to send the status back?
+    // res.sendStatus(status);
+  })
+  .catch((err) => console.log(err))
+  .finally(() => res.redirect('/'));
 });
 
 router.post("/burgers/devour/:id", (req, res) => {
-  console.log('hello')
-  let id = req.params.body.id;
-  console.log(id)
-  // burger.updateOne(id).then((data) => {
-  //   console.log('insert: ', data);
-  //   res.json(data);
-  //   res.redirect("/");
-  // });
+  let {id} = req.params;
+  burger.updateOne(id, true)
+  .then((data) => {
+    status = data.changedRows == 1 ? 200 : 500;
+    //  todo how to send the status back?
+    // res.sendStatus(status);
+  })
+  .catch((err) => console.log(err))
+  .finally(() => res.redirect('/'));
 });
 
-router.get("/boo", (req, res) => {
-  console.log('fuck')
-});
-
-router.post("/:thing/:thing2/:id", (req, res) => {
-  console.log('yolo')
+router.post("/burgers/vomit/:id", (req, res) => {
+  let {id} = req.params;
+  let status;
+  burger.updateOne(id, false)
+  .then((data) => {
+     status = data.changedRows == 1 ? 200 : 500;
+    //  todo how to send the status back?
+    // res.sendStatus(status);
+  })
+  .catch((err) => console.log(err))
+  .finally(() => res.redirect('/'));
 });
 
 module.exports = router;

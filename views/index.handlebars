@@ -13,6 +13,9 @@
 <ul>
 {{#each burgers.eaten }}
   <li>{{this.burger_name}}</li>
+  <form action='/api/burgers/vomit/{{this.id}}' method="POST">
+	    <button type="submit">Vomit</button>
+    </form>
 {{/each}}
 </ul>
 
@@ -25,7 +28,7 @@
   <li>
       {{this.burger_name}} 
     <form action='/api/burgers/devour/{{this.id}}' method="POST">
-	    <button type="submit">Submit</button>
+	    <button type="submit">Devour</button>
     </form>
   </li>
 {{/each}}
@@ -35,14 +38,6 @@
 <h1>Add Burger</h1>
 <form action='/api/burgers/create' method="POST">
     <label for="burger">Burger:</label><br>
-    <input type="text" id="burger" name="burger" value=""><br>    
-    <button type="submit">Submit</button>
-</form>
-
-<hr/>
-<h1>TESTS</h1>
-<form action='/api/boo' method="GET">
-    <label for="burger">Burger:</label><br>
-    <input type="text" id="burger" name="burger" value=""><br>    
+    <input type="text" id="burger" name="burger_name" value=""><br>    
     <button type="submit">Submit</button>
 </form>

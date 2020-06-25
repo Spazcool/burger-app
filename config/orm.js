@@ -11,11 +11,11 @@ class ORM {
     }
 
     insertOne(value){
-        return this.connection.query('INSERT INTO burgers burger_name VALUES (?);', [value]);
+        return this.connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?, false);', [value]);
     }
 
-    updateOne(id){
-        return this.connection.query('UPDATE burgers SET devoured = true WHERE id = ?;', [id]);
+    updateOne(id, devoured){
+        return this.connection.query('UPDATE burgers SET devoured = ? WHERE id = ?;', [devoured, id]);
     }
 }
 

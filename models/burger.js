@@ -15,8 +15,8 @@ class Burger {
         return query.insertOne(name);
     }
 
-    updateOne(ID){
-        return query.updateOne(ID);
+    updateOne(id, state){
+        return query.updateOne(id, state);
     }
 }
 
