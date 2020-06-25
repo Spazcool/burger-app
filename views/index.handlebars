@@ -8,25 +8,41 @@
   }
 </style>
 
-<h1>Uneaten</h1>
+<h1>Eaten</h1>
 
 <ul>
-{{#each burgers }}
-  <li>{{burger}}</li>
+{{#each burgers.eaten }}
+  <li>{{this.burger_name}}</li>
 {{/each}}
 </ul>
 
 <hr/>
 
-<h1>Eaten</h1>
+<h1>Uneaten</h1>
 
 <ul>
-{{#each burgers }}
+{{#each burgers.uneaten }}
   <li>
-      {{burger}} 
-      <form action='/burgers/{{burger.id}}/devour' method="POST">
+      {{this.burger_name}} 
+    <form action='/api/burgers/devour/{{this.id}}' method="POST">
 	    <button type="submit">Submit</button>
-      </form>
+    </form>
   </li>
 {{/each}}
 </ul>
+
+<hr/>
+<h1>Add Burger</h1>
+<form action='/api/burgers/create' method="POST">
+    <label for="burger">Burger:</label><br>
+    <input type="text" id="burger" name="burger" value=""><br>    
+    <button type="submit">Submit</button>
+</form>
+
+<hr/>
+<h1>TESTS</h1>
+<form action='/api/boo' method="GET">
+    <label for="burger">Burger:</label><br>
+    <input type="text" id="burger" name="burger" value=""><br>    
+    <button type="submit">Submit</button>
+</form>

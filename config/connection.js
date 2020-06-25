@@ -1,5 +1,3 @@
-// import mysql from 'mysql';
-// import util from 'util';
 const mysql = require('mysql');
 const util = require('util');
 require('dotenv').config();
