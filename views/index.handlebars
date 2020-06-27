@@ -1,43 +1,43 @@
-<style media="screen">
-  li {
-    background-color: wheat;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 50%;
-    font-family: sans-serif;
-  }
-</style>
+<div class="container">
+    <div class="row">
 
-<h1>Eaten</h1>
+        <div class="col-sm card">
+            <h1>Add</h1>
+            <form class='form-inline' action='/api/burgers/create' method="POST">
+                <input
+                    aria-label="add a burger"
+                    type="text" 
+                    id="burger" 
+                    name="burger_name" 
+                    value="" 
+                    placeholder="Royale avec Fromage">
+                <br>    
+                <button type="submit">Submit</button>
+            </form>
+        </div>
 
-<ul>
-{{#each burgers.eaten }}
-  <li>{{this.burger_name}}</li>
-  <form action='/api/burgers/vomit/{{this.id}}' method="POST">
-	    <button type="submit">Vomit</button>
-    </form>
-{{/each}}
-</ul>
+        <div class="col-sm card">
+            <h1>Eat</h1>
+            {{#each burgers.uneaten }}
+                <div class='eat'>
+                    <form class='form-inline' action='/api/burgers/devour/{{this.id}}' method="POST">
+                        <label>{{this.burger_name}}</label>
+                        <button type="submit">Devour</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
 
-<hr/>
-
-<h1>Uneaten</h1>
-
-<ul>
-{{#each burgers.uneaten }}
-  <li>
-      {{this.burger_name}} 
-    <form action='/api/burgers/devour/{{this.id}}' method="POST">
-	    <button type="submit">Devour</button>
-    </form>
-  </li>
-{{/each}}
-</ul>
-
-<hr/>
-<h1>Add Burger</h1>
-<form action='/api/burgers/create' method="POST">
-    <label for="burger">Burger:</label><br>
-    <input type="text" id="burger" name="burger_name" value=""><br>    
-    <button type="submit">Submit</button>
-</form>
+        <div class="col-sm card">
+            <h1>Vomit</h1>
+            {{#each burgers.eaten }}
+                <div class='vomit'>
+                    <form class='form-inline' action='/api/burgers/vomit/{{this.id}}' method="POST">
+                        <label>{{this.burger_name}}</label>
+                        <button type="submit">Vomit</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
