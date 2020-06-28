@@ -1,96 +1,72 @@
-# Node Express Handlebars
+# Burger App
 
-### Overview
+Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat. A user submits a burger's name, and it is displayed on the left side of the page -- waiting to be devoured. Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
 
-In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+A simple demo of a fullstack application, Eat-Da-Burger! is hosted in Heroku & utilizes a Node backend, using a RESTful API routed with Express that makes requests to a MySQL database & ultimately serves the user a view using Handlebars templates.
 
-### Important
+<p align="center">
+   <img width="70%" height="350vh" src="./public/assets/images/desktop.gif"/>
+   <img width="20%" height="350vh" src="./public/assets/images/mobile.gif"/>
+</p>
 
-* **This assignment must be deployed.** Be sure to utilize the [MYSQL Heroku Deployment Guide](../../03-Supplemental/MySQLHerokuDeploymentProcess.pdf) in order to deploy your assignment.
+## Installation & Getting Started (remotely)
+* [hosted site](https://add-devour-vomit-burger.herokuapp.com)
+* [repo](https://github.com/Spazcool/burger-app)
 
-### Before You Begin
+## Installation & Getting Started (locally)
 
-* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+1. Clone from the [Repo](https://github.com/Spazcool/burger-app): 
+  ```
+  git clone https://github.com/Spazcool/burger-app.git
+  ```
+2. Install dependencies:
+  ```
+  npm install
+  ```
+3. Create .env file at root directory, change values as needed (for use with MySQL database):
+  ```
+  DB_PASSWORD='password'
+  DB_HOST='localhost'
+  DB_USER='root'
+  DB_NAME='burgers_db'
+  DB_PORT='3306'
+  ```
+4. Create MySQL Database:
+  * Install: 
+    * [MySQL Install (Mac)](https://dev.mysql.com/doc/mysql-osx-excerpt/5.7/en/osx-installation-pkg.html)
+    * [MySQL Workbench](https://www.mysql.com/products/workbench/)
+  * Run MySQL, from System Prefrences.
+  * Open MySQL Workbench
+    * Copy/paste [seed file](db/seed.sql) from this repo
+    * Run seed
 
-* Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+5. Run application:
 
-* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
-<!-- todo devour animation / sliding card animation -->
+  ```
+  node server.js
+  ```
 
+## Prerequisites
 
-#### Directory structure
+* Node.js
 
-All the recommended files and directories from the steps above should look like the following structure:
+## Built With
 
-```
-.
-├── config
-│   ├── connection.js
-│   └── orm.js
-│ 
-├── controllers
-│   └── burgers_controller.js
-│
-├── db
-│   ├── schema.sql
-│   └── seeds.sql
-│
-├── models
-│   └── burger.js
-│ 
-├── node_modules
-│ 
-├── package.json
-│
-├── public
-│   └── assets
-│       ├── css
-│       │   └── burger_style.css
-│       └── img
-│           └── burger.png
-│   
-│
-├── server.js
-│
-└── views
-    ├── index.handlebars
-    └── layouts
-        └── main.handlebars
-```
+* Node
+* Express
+* MySQL
+* Bootstrap
+* Handlebars
+* Heroku
 
-### Minimum Requirements
+## Authors
 
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Hosting on Heroku and adding a README.md are required for this homework. In addition, add this homework to your portfolio, more information can be found below.
- 
-- - -
+* **Douglas Wright** - [Spazcool](https://github.com/Spazcool)
 
-### Hosting on Heroku
+## Acknowledgements
 
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
+* [Sticky Footer](https://getbootstrap.com/docs/4.0/examples/sticky-footer/) 
 
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
+## License
 
-- - -
-
-### Create a README.md
-
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
-- - -
-
-### Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-- - -
-
-### One More Thing
-
-This is a really tough homework assignment, but we want you to put in your best effort to finish it.
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
