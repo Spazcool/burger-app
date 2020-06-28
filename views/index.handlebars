@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-sm card">
+        <div class="col-sm card" id="add">
             <h1>Add</h1>
-            <form class='form-inline' action='/api/burgers/create' method="POST">
+            <form action='/api/burgers/create' method="POST">
                 <input
                     aria-label="add a burger"
                     type="text" 
@@ -11,30 +11,35 @@
                     name="burger_name" 
                     value="" 
                     placeholder="Royale avec Fromage">
-                <br>    
-                <button type="submit">Submit</button>
+                <button type="submit" aria-label="submit" title="submit">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
             </form>
         </div>
 
-        <div class="col-sm card">
+        <div class="col-sm card" id="eat">
             <h1>Eat</h1>
-            {{#each burgers.uneaten }}
+            {{#each burgers.uneaten}}
                 <div class='eat'>
-                    <form class='form-inline' action='/api/burgers/devour/{{this.id}}' method="POST">
+                    <form action='/api/burgers/devour/{{this.id}}' method="POST">
                         <label>{{this.burger_name}}</label>
-                        <button type="submit">Devour</button>
+                        <button type="submit" aria-label="eat" title="eat">
+                            <i class="fas fa-hamburger" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </div>
             {{/each}}
         </div>
 
-        <div class="col-sm card">
+        <div class="col-sm card" id="vomit">
             <h1>Vomit</h1>
             {{#each burgers.eaten }}
                 <div class='vomit'>
-                    <form class='form-inline' action='/api/burgers/vomit/{{this.id}}' method="POST">
+                    <form action='/api/burgers/vomit/{{this.id}}' method="POST">
                         <label>{{this.burger_name}}</label>
-                        <button type="submit">Vomit</button>
+                        <button type="submit" aria-label="vomit" title="vomit">
+                            <i class="fas fa-skull-crossbones" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </div>
             {{/each}}
