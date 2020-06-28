@@ -17,7 +17,7 @@ body {
 }
 
 .card {
-    margin: 0 10px;
+    margin: 0 10px 10px 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px 5px;
 }
 
@@ -44,6 +44,7 @@ button{
 
 #add{
     background-color: #FFF5BA;
+    padding-bottom: 10px;
 }
 
 #eat{
